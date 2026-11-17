@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+  --Green-400: hsl(172, 67%, 45%);
+  --Green-900: hsl(183, 100%, 15%);
+  --Grey-500: hsl(186, 14%, 43%);
+  --Grey-400: hsl(184, 14%, 56%);
+  --Grey-200: hsl(185, 41%, 84%);
+  --Grey-50: hsl(189, 47%, 97%);
+  --White: hsl(0, 100%, 100%);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  
+}
+.calc-container{
+  background-color: var(--Grey-200);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .logo{
+    margin-bottom: 30px;
+  }
+}
+.calculator{
+  width: 700px;
+  height: 350px;
+  background-color: var(--White);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+ 
+}
+.left{
+    padding: 30px;
+
+  }
+.left .bill{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.left .bill p{
+  color: var(--Grey-500);
+  font-weight: 700;
+}
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-container img {
+  position: absolute;
+  left: 10px;         /* space from left */
+  width: 15px;
+  height: 15px;
+}
+.input-container input {
+  width: 100%;
+  padding: 10px 15px;
+  padding-left: 35px; /* make room for icon */
+  text-align: right;  /* puts the "0" to the right */
+  font-size: 16px;
+  border: none;
+  background-color: var(--Grey-50);
+}
+.select{
+  margin-top: 20px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.select p{
+  color: var(--Grey-500);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.select .buttons{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  
+}
+.select .buttons button,
+.select .buttons .custom {
+  background-color: var(--Green-900);
+  color: var(--White);
+  font-size: 1.2em;
+  height: 35px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* make them all stretch the same */
+}
+.select .buttons .custom {
+  background-color: var(--Grey-50);
+  color: var(--Green-900);
+  text-align: center;
+  cursor: text;
+}
+/* 
+.select .buttons button{
+  background-color:var(--Green-900);
+  color: var(--White);
+  font-size: 1.2em;
+  height:35px ;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+} */
+.select .buttons button:hover{
+  background-color:var(--Green-400) ;
+  color: var(--Green-900);
+}
+.select .buttons button.active {
+  background-color: var(--Green-400);
+  color: var(--Green-900);
+}
+
+.error-message {
+  color: red;
+  font-size: 11px;
+  display: none;   /* hidden by default */
+}
+.label-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right {
+  padding:25px 10px;
+  .rightcont{
+    height: 300px;
+    width: 95%;
+    background-color:var(--Green-900) ;
+    border-radius: 10px;
+    .tip-amount{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 30px ; 
+      margin-bottom: 10px;
+      
+      .p-con {
+      p:first-child {
+        color: white;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      p:last-child {
+        color: var(--Grey-500);
+        font-size: 11px;
+      }
+  }
+
+  h2 {
+    color: var(--Green-400);
+    font-size: 32px;
+    font-weight: 700;
+  }
+    }
+  }
+  .total{
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 30px ; 
+      margin-bottom: 10px;
+      
+      .p-con {
+      p:first-child {
+        color: white;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      p:last-child {
+        color: var(--Grey-500);
+        font-size: 11px;
+      }
+  }
+
+  h2 {
+    color: var(--Green-400);
+    font-size: 32px;
+    font-weight: 700;
+  }
+    }
+  }
+.rightcont button{
+  background-color: var(--Green-400);
+  width: 80%;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 30px;
+  font-weight: 700;
+  color:var(--Green-900) ;
+  cursor: pointer;
+}
+
+/* Mobile-first design for 375px width */
+@media (max-width: 480px) {
+  .calc-container {
+    flex-direction: column;
+    width: 100%;
+    padding: 15px; /* some breathing room */
+  }
+
+  .calculator { 
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    gap: 20px;
+    width: 100%;
+    height: auto; /* don’t fix the height on mobile */
+  }
+
+  .left, 
+  .right {
+    width: 100%; /* full width */
+    padding: 15px;
+  }
+
+  /* Inputs stretch full width */
+  .input-container input {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  /* Tip buttons: 2 per row on 375px */
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .buttons button,
+  .buttons .custom {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--Green-900);
+    color: white;
+  }
+
+  /* Results box full width at bottom */
+  .rightcont {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Desktop layout (for screens bigger than 768px) */
+@media (min-width: 768px) {
+  .calculator {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* side by side */
+    height: 350px; /* your original fixed height */
+  }
+
+  .left, 
+  .right {
+    padding: 30px;
+  }
+}
+
